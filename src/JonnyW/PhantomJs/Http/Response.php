@@ -82,6 +82,10 @@ class Response
      */
     public $console;
 
+    public function getRawData(){
+      return $this->raw_data;
+    }
+
     /**
      * Import response data
      *
@@ -91,6 +95,7 @@ class Response
      */
     public function import(array $data)
     {
+        $this->raw_data = $data;
         foreach ($data as $param => $value) {
 
             if ($param === 'headers') {
